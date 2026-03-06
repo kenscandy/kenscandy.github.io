@@ -1,23 +1,45 @@
-<html>
-  <body>
-    <object data="Stores.pdf" type="application/pdf" width="100%" height="1000px">
-      <!-- Fallback content if the browser cannot display the PDF -->
-      <p>Your browser does not support PDFs. You can download the file here: 
-      <a href="Stores.pdf">Download PDF</a>.</p>
-    </object>
-  </body>
-</html>
-        const ctx = canvas.getContext('2d');
-        const img = new Image();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stores</title>
+    <style>
+        /* Makes the PDF fill the entire browser window */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 100vh;
+        }
+        .fallback-msg {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
 
-        img.onload = () => {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
-        };
+    <div class="pdf-container">
+        <object data="Stores.pdf" type="application/pdf" width="100%" height="100%">
+            
+            <!-- Fallback 1: Iframe for better compatibility -->
+            <iframe src="Stores.pdf" width="100%" height="100%" style="border: none;">
+                
+                <!-- Fallback 2: Direct link if both above fail -->
+                <div class="fallback-msg">
+                    <p>It appears your browser doesn't support embedded PDFs.</p>
+                    <p><a href="Stores.pdf" target="_blank">Click here to download and view the PDF.</a></p>
+                </div>
 
-        // Ensure this matches your file name exactly (case-sensitive)
-        img.src = 'Stores.png'; 
-    </script>
+            </iframe>
+        </object>
+    </div>
+
 </body>
 </html>
