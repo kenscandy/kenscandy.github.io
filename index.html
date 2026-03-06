@@ -1,39 +1,12 @@
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Image Viewer</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        canvas {
-            max-width: 100vw;
-            max-height: 100vh;
-            object-fit: contain;
-            /* Prevents the iOS long-press crash on the canvas itself */
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            pointer-events: none;
-        }
-    </style>
-</head>
-<body>
-
-    <canvas id="imageCanvas"></canvas>
-
-    <script>
-        const canvas = document.getElementById('imageCanvas');
+  <body>
+    <object data="Stores.pdf" type="application/pdf" width="100%" height="1000px">
+      <!-- Fallback content if the browser cannot display the PDF -->
+      <p>Your browser does not support PDFs. You can download the file here: 
+      <a href="Stores.pdf">Download PDF</a>.</p>
+    </object>
+  </body>
+</html>
         const ctx = canvas.getContext('2d');
         const img = new Image();
 
