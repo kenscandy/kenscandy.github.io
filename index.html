@@ -1,1 +1,23 @@
-<img src="Stores.png" alt="list of Ken's Candy stores">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Viewer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents scrollbars */
+            background-color: black; /* Optional: adds a background for transparent PNGs */
+        }
+        .full-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Scales image to fit without cropping */
+        }
+    </style>
+</head>
+<body>
+    <img src="Stores.png" class="full-image" alt="Full screen image">
+</body>
+</html>
